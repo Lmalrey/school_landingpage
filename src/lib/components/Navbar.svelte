@@ -10,6 +10,7 @@
 		{ label: 'Servicios', href: '/servicios' },
 		{ label: 'Instalaciones', href: '/instalaciones' },
 		{ label: 'Contacto', href: '/contacto' },
+		{ label: 'FAQ', href: '/faq' },
 		{ label: 'Blog', href: '/blog' }
 	];
 </script>
