@@ -32,7 +32,7 @@
     margin-top: 20px;
   }
   .meta-info {
-    color: #6b7280;
+    color: var(--color-muted);
     margin-top: 10px;
   }
   .content {
@@ -42,7 +42,7 @@
   .back-btn {
     display: inline-block;
     margin-top: 40px;
-    color: #2563eb;
+    color: var(--color-primary);
     text-decoration: none;
   }
 </style>

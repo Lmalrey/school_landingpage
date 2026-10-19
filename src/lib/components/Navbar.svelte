@@ -79,7 +79,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.75rem;
-		color: #16324f;
+		color: var(--color-navy);
 		font-size: 1rem;
 		font-weight: 700;
 		line-height: 1.25;
@@ -106,7 +106,7 @@
 	.navigation a {
 		position: relative;
 		padding-block: 0.5rem;
-		color: #3c4b5b;
+		color: var(--color-text);
 		font-size: 0.95rem;
 		font-weight: 600;
 		text-decoration: none;
@@ -115,7 +115,7 @@
 
 	.navigation a:hover,
 	.navigation a.active {
-		color: #0879b9;
+		color: var(--color-primary);
 	}
 
 	.navigation a.active::after {
@@ -124,7 +124,7 @@
 		bottom: 0;
 		left: 0;
 		height: 2px;
-		background: #0879b9;
+		background: var(--color-primary);
 		content: '';
 	}
 
@@ -143,7 +143,7 @@
 		display: block;
 		height: 2px;
 		margin-block: 4px;
-		background: #16324f;
+		background: var(--color-navy);
 	}
 
 	@media (max-width: 760px) {

@@ -46,7 +46,7 @@
 <style>
 	.site-footer {
 		padding: 1.5rem 1rem;
-		background: #16324f;
+		background: var(--color-navy);
 		color: #fff;
 	}
 

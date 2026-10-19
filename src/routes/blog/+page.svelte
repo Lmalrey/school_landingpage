@@ -8,12 +8,12 @@
   <title>Blog | Instituto Dr. Carlos Seguías</title>
 </svelte:head>
 
-<section class="blog-container">
+<section class="blog-container container">
   <h1>Blog</h1>
   
   <div class="posts-grid">
     {#each data.posts as post (post.slug)}
-      <article class="post-card">
+      <article class="post-card card">
         {#if post.image}
           <img src={post.image} alt={post.title} />
         {/if}
@@ -40,10 +40,7 @@
     margin-top: 30px;
   }
   .post-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    overflow: hidden;
-    background: white;
+    color: var(--color-text);
   }
   .post-card img {
     width: 100%;
@@ -55,20 +52,20 @@
   }
   .date {
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--color-muted);
   }
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: #1f2937;
+    color: var(--color-heading);
     text-align: center;
   }
   h2 a {
-    color: #1f2937;
+    color: var(--color-heading);
     text-decoration: none;
   }
   h2 a:hover {
-    color: #2563eb;
+    color: var(--color-primary-hover);
   }
   h2 a{
     font-weight: bold;
