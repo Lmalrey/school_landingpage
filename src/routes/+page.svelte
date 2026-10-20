@@ -109,33 +109,102 @@
 
 		<div class="testimonials-grid">
 			<figure class="testimonial-card">
+				<div class="quote-mark" aria-hidden="true">
+					<svg viewBox="0 0 48 48" focusable="false">
+						<path
+							d="M21 8C10 10 5 17 5 28v12h16V24h-8c.5-5 3.2-8 8-10V8Zm22 0C32 10 27 17 27 28v12h16V24h-8c.5-5 3.2-8 8-10V8Z"
+						/>
+					</svg>
+				</div>
+				<div class="testimonial-representative">
+					<div
+						class="testimonial-avatar"
+						role="img"
+						aria-label="Avatar ilustrativo, sin fotografía"
+					>
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+							<path
+								d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-7 2-7 4.5V21h14v-2.5c0-2.5-3-4.5-7-4.5Z"
+							/>
+						</svg>
+					</div>
+					<div class="representative-info">
+						<strong>Madre de estudiante de primer grado</strong>
+						<span>Texto ilustrativo de ejemplo</span>
+					</div>
+				</div>
 				<blockquote>
 					<p>
 						“Encontramos un equipo atento que acompaña a nuestra familia y celebra cada avance de
 						nuestro hijo.”
 					</p>
 				</blockquote>
-				<figcaption>Madre de estudiante <span>· Texto de ejemplo</span></figcaption>
 			</figure>
 
 			<figure class="testimonial-card">
+				<div class="quote-mark" aria-hidden="true">
+					<svg viewBox="0 0 48 48" focusable="false">
+						<path
+							d="M21 8C10 10 5 17 5 28v12h16V24h-8c.5-5 3.2-8 8-10V8Zm22 0C32 10 27 17 27 28v12h16V24h-8c.5-5 3.2-8 8-10V8Z"
+						/>
+					</svg>
+				</div>
+				<div class="testimonial-representative">
+					<div
+						class="testimonial-avatar"
+						role="img"
+						aria-label="Avatar ilustrativo, sin fotografía"
+					>
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+							<path
+								d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-7 2-7 4.5V21h14v-2.5c0-2.5-3-4.5-7-4.5Z"
+							/>
+						</svg>
+					</div>
+					<div class="representative-info">
+						<strong>Representante de Educación Inicial</strong>
+						<span>Texto ilustrativo de ejemplo</span>
+					</div>
+				</div>
 				<blockquote>
 					<p>
 						“Nos sentimos escuchados y orientados. La comunicación con el equipo nos da confianza
 						para acompañar su aprendizaje.”
 					</p>
 				</blockquote>
-				<figcaption>Padre de estudiante <span>· Texto de ejemplo</span></figcaption>
 			</figure>
 
 			<figure class="testimonial-card">
+				<div class="quote-mark" aria-hidden="true">
+					<svg viewBox="0 0 48 48" focusable="false">
+						<path
+							d="M21 8C10 10 5 17 5 28v12h16V24h-8c.5-5 3.2-8 8-10V8Zm22 0C32 10 27 17 27 28v12h16V24h-8c.5-5 3.2-8 8-10V8Z"
+						/>
+					</svg>
+				</div>
+				<div class="testimonial-representative">
+					<div
+						class="testimonial-avatar"
+						role="img"
+						aria-label="Avatar ilustrativo, sin fotografía"
+					>
+						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+							<path
+								d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-7 2-7 4.5V21h14v-2.5c0-2.5-3-4.5-7-4.5Z"
+							/>
+						</svg>
+					</div>
+					<div class="representative-info">
+						<strong>Madre de estudiante de bachillerato</strong>
+						<span>Texto ilustrativo de ejemplo</span>
+					</div>
+				</div>
 				<blockquote>
 					<p>
 						“Cada día vemos cuánto disfruta aprender en un espacio donde respetan su ritmo y
 						reconocen sus fortalezas.”
 					</p>
 				</blockquote>
-				<figcaption>Familiar de estudiante <span>· Texto de ejemplo</span></figcaption>
 			</figure>
 		</div>
 	</div>
@@ -336,31 +405,85 @@
 	}
 
 	.testimonial-card {
+		position: relative;
 		margin: 0;
 		padding: 1.5rem;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-card);
-		background: var(--color-surface);
+		border: 1px solid #f3f4f6;
+		border-radius: 12px;
+		background: #fff;
+		box-shadow: 0 10px 24px rgb(15 23 42 / 8%);
+		transition:
+			transform 180ms ease,
+			box-shadow 180ms ease;
 	}
 
-	.testimonial-card blockquote {
-		margin: 0 0 1.25rem;
-		font-size: 1.05rem;
+	.testimonial-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 18px 36px rgb(15 23 42 / 12%);
 	}
 
-	.testimonial-card blockquote p {
-		margin: 0;
+	.quote-mark {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		width: 2.5rem;
+		height: 2.5rem;
+		color: rgb(8 121 185 / 18%);
 	}
 
-	.testimonial-card figcaption {
+	.quote-mark svg {
+		width: 100%;
+		height: 100%;
+		fill: currentColor;
+	}
+
+	.testimonial-representative {
+		display: flex;
+		align-items: center;
+		gap: 0.9rem;
+		margin-bottom: 1rem;
+		padding-right: 2.5rem;
+	}
+
+	.testimonial-avatar {
+		display: grid;
+		width: 3rem;
+		height: 3rem;
+		flex: 0 0 3rem;
+		place-items: center;
+		overflow: hidden;
+		border-radius: 50%;
+		background: linear-gradient(135deg, #e8f2fc, #cfe3f6);
+		color: #7395b2;
+	}
+
+	.testimonial-avatar svg {
+		width: 1.75rem;
+		height: 1.75rem;
+		fill: currentColor;
+	}
+
+	.representative-info {
+		display: grid;
+		gap: 0.2rem;
 		color: var(--color-heading);
 		font-weight: 600;
 	}
 
-	.testimonial-card figcaption span {
+	.representative-info span {
 		color: var(--color-muted);
-		font-size: 0.875rem;
+		font-size: 0.8rem;
 		font-weight: 400;
+	}
+
+	.testimonial-card blockquote {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1.7;
+	}
+
+	.testimonial-card blockquote p {
+		margin: 0;
 	}
 
 	@media (max-width: 600px) {
