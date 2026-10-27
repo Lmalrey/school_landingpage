@@ -31,38 +31,117 @@
 	/>
 </svelte:head>
 
-<section class="hero-carousel" aria-label="Galería del Instituto" aria-roledescription="carrusel">
+<section
+	class="relative isolate min-h-[36rem] overflow-hidden bg-slate-950 sm:min-h-[40rem] lg:min-h-[42rem]"
+	aria-label="Galería del Instituto"
+	aria-roledescription="carrusel"
+>
 	{#each slides as slide, index (index)}
-		<img class="hero-image" class:active={activeSlide === index} src={slide.src} alt={slide.alt} />
+		<img
+			class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-700 ease-in-out"
+			class:opacity-100={activeSlide === index}
+			src={slide.src}
+			alt={slide.alt}
+		/>
 	{/each}
 
+	<div
+		class="absolute inset-0 -z-0 bg-gradient-to-r from-slate-950/90 via-slate-900/65 to-slate-900/10"
+		aria-hidden="true"
+	></div>
+	<div
+		class="absolute inset-x-0 bottom-0 -z-0 h-40 bg-gradient-to-t from-slate-950/50 to-transparent"
+		aria-hidden="true"
+	></div>
+
+	<div
+		class="relative z-10 mx-auto flex min-h-[36rem] w-full max-w-7xl items-center px-6 py-20 sm:min-h-[40rem] sm:px-10 lg:min-h-[42rem] lg:px-12"
+	>
+		<div class="max-w-3xl text-white">
+			<p
+				class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold tracking-wide text-white shadow-sm backdrop-blur-md"
+			>
+				<span class="h-2 w-2 rounded-full bg-amber-400"></span>
+				Educación especial · Maturín, Monagas
+			</p>
+			<h1
+				class="max-w-3xl text-4xl leading-[1.08] font-bold tracking-tight text-amber-300 drop-shadow-lg sm:text-5xl lg:text-7xl"
+			>
+				Cada aprendizaje abre un mundo de posibilidades.
+			</h1>
+			<p class="mt-6 max-w-2xl text-lg leading-8 text-slate-100 sm:text-xl">
+				En el Instituto Dr. Carlos Seguías acompañamos a cada estudiante con una educación cercana,
+				respetuosa y pensada para su desarrollo.
+			</p>
+			<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+				<a
+					class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-950 shadow-lg shadow-amber-950/20 transition duration-200 hover:-translate-y-0.5 hover:bg-amber-300 hover:text-slate-950 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
+					href={resolve('/contacto')}
+				>
+					Conoce nuestra escuela
+					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M5 12h14m-6-6 6 6-6 6"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</a>
+				<a
+					class="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/60 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white/20 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+					href={resolve('/nosotros')}
+				>
+					Sobre el instituto
+				</a>
+			</div>
+		</div>
+	</div>
+
 	<button
-		class="carousel-arrow previous"
+		class="absolute top-1/2 left-4 z-20 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-slate-950/35 text-white backdrop-blur-sm transition duration-200 hover:scale-105 hover:border-white hover:bg-slate-950/70 sm:left-8 sm:h-12 sm:w-12"
 		type="button"
 		aria-label="Mostrar imagen anterior"
 		onclick={() => showSlide(activeSlide - 1)}
 	>
-		<svg viewBox="0 0 24 24" aria-hidden="true">
-			<path d="m15 18-6-6 6-6" />
+		<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+			<path
+				d="m15 18-6-6 6-6"
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+			/>
 		</svg>
 	</button>
 
 	<button
-		class="carousel-arrow next"
+		class="absolute top-1/2 right-4 z-20 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-white/50 bg-slate-950/35 text-white backdrop-blur-sm transition duration-200 hover:scale-105 hover:border-white hover:bg-slate-950/70 sm:right-8 sm:h-12 sm:w-12"
 		type="button"
 		aria-label="Mostrar imagen siguiente"
 		onclick={() => showSlide(activeSlide + 1)}
 	>
-		<svg viewBox="0 0 24 24" aria-hidden="true">
-			<path d="m9 18 6-6-6-6" />
+		<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+			<path
+				d="m9 18 6-6-6-6"
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+			/>
 		</svg>
 	</button>
 
-	<div class="carousel-indicators" aria-label="Seleccionar imagen">
+	<div
+		class="absolute right-0 bottom-6 left-0 z-20 flex justify-center gap-3"
+		aria-label="Seleccionar imagen"
+	>
 		{#each slides, index (index)}
 			<button
-				class="carousel-indicator"
-				class:active={activeSlide === index}
+				class="h-3 w-3 rounded-full border border-white/90 bg-slate-950/40 transition duration-200 hover:scale-125"
+				class:bg-white={activeSlide === index}
+				class:scale-125={activeSlide === index}
 				type="button"
 				aria-label={`Mostrar imagen ${index + 1}`}
 				aria-pressed={activeSlide === index}
@@ -72,25 +151,122 @@
 	</div>
 </section>
 
-<section class="latest-posts container" aria-labelledby="latest-posts-heading">
-	<header class="latest-posts-header">
-		<h2 id="latest-posts-heading">Últimas entradas de blog</h2>
-		<a class="all-posts-link" href={resolve('/blog')}>Ver todas las entradas</a>
+<section
+	class="relative z-10 mx-auto -mt-1 grid max-w-7xl gap-4 px-6 py-8 sm:grid-cols-3 sm:px-10 lg:-mt-10 lg:px-12"
+>
+	<article
+		class="rounded-2xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+	>
+		<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-sky-700">
+			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+				<path
+					d="M12 3 3.5 7.5 12 12l8.5-4.5L12 3Zm-6 7.1V15c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5v-4.9M20.5 8v7"
+					stroke="currentColor"
+					stroke-width="1.7"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+		</div>
+		<h2 class="text-lg font-bold text-slate-900">Aprendizaje con propósito</h2>
+		<p class="mt-2 text-sm leading-6 text-slate-600">
+			Un entorno educativo que valora las fortalezas y el potencial de cada estudiante.
+		</p>
+	</article>
+	<article
+		class="rounded-2xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+	>
+		<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-amber-600">
+			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+				<path
+					d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"
+					stroke="currentColor"
+					stroke-width="1.7"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+		</div>
+		<h2 class="text-lg font-bold text-slate-900">Acompañamiento cercano</h2>
+		<p class="mt-2 text-sm leading-6 text-slate-600">
+			Construimos junto a las familias una comunidad de apoyo, respeto y confianza.
+		</p>
+	</article>
+	<article
+		class="rounded-2xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+	>
+		<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-700">
+			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+				<path
+					d="M12 3v18m0-14c-3.5 0-5.5-1.7-5.5-4m5.5 7c3.5 0 5.5-1.7 5.5-4M12 15c-3.5 0-5.5-1.7-5.5-4m5.5 7c3.5 0 5.5-1.7 5.5-4"
+					stroke="currentColor"
+					stroke-width="1.7"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+		</div>
+		<h2 class="text-lg font-bold text-slate-900">Desarrollo a su ritmo</h2>
+		<p class="mt-2 text-sm leading-6 text-slate-600">
+			Celebramos los avances cotidianos y acompañamos cada etapa de crecimiento.
+		</p>
+	</article>
+</section>
+
+<section
+	class="mx-auto max-w-7xl px-6 py-16 sm:px-10 sm:py-20 lg:px-12"
+	aria-labelledby="latest-posts-heading"
+>
+	<header class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+		<div>
+			<p class="mb-2 text-sm font-bold tracking-[0.16em] text-sky-700 uppercase">
+				Ideas y recursos
+			</p>
+			<h2
+				id="latest-posts-heading"
+				class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+			>
+				Últimas entradas de blog
+			</h2>
+		</div>
+		<a
+			class="inline-flex items-center gap-2 font-semibold text-sky-700 transition hover:gap-3 hover:text-sky-900"
+			href={resolve('/blog')}
+		>
+			Ver todas las entradas
+			<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+				<path
+					d="M5 12h14m-6-6 6 6-6 6"
+					stroke="currentColor"
+					stroke-width="1.8"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				/>
+			</svg>
+		</a>
 	</header>
 
-	<div class="posts-grid">
+	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 		{#each data.posts as post (post.slug)}
-			<article class="post-card">
+			<article
+				class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+			>
 				{#if post.image}
-					<img class="post-image" src={post.image} alt={post.title} />
+					<img
+						class="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+						src={post.image}
+						alt={post.title}
+					/>
 				{/if}
-				<div class="post-content">
-					<p class="post-meta">{post.date} · {post.author}</p>
-					<h3>
+				<div class="p-6">
+					<p class="mb-3 text-sm text-slate-500">{post.date} · {post.author}</p>
+					<h3
+						class="text-xl leading-snug font-bold text-slate-900 transition group-hover:text-sky-700"
+					>
 						<a href={resolve('/blog/[slug]', { slug: post.slug })}>{post.title}</a>
 					</h3>
 					{#if post.description}
-						<p class="post-description">{post.description}</p>
+						<p class="mt-3 leading-7 text-slate-600">{post.description}</p>
 					{/if}
 				</div>
 			</article>
@@ -98,42 +274,59 @@
 	</div>
 </section>
 
-<section class="testimonials" aria-labelledby="testimonials-heading">
-	<div class="container">
-		<header class="testimonials-header">
-			<h2 id="testimonials-heading">Testimonios de padres</h2>
-			<p class="testimonials-note">
+<section
+	class="bg-gradient-to-br from-sky-50 via-slate-50 to-amber-50/60 py-16 sm:py-20"
+	aria-labelledby="testimonials-heading"
+>
+	<div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
+		<header class="mx-auto mb-10 max-w-2xl text-center">
+			<p class="mb-2 text-sm font-bold tracking-[0.16em] text-sky-700 uppercase">
+				Nuestra comunidad
+			</p>
+			<h2
+				id="testimonials-heading"
+				class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+			>
+				Testimonios de padres
+			</h2>
+			<p class="mt-4 text-sm leading-6 text-slate-500">
 				Textos ilustrativos de ejemplo, pendientes de reemplazar por testimonios reales.
 			</p>
 		</header>
 
-		<div class="testimonials-grid">
-			<figure class="testimonial-card">
-				<div class="quote-mark" aria-hidden="true">
-					<svg viewBox="0 0 48 48" focusable="false">
+		<div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+			<figure
+				class="relative rounded-2xl border border-white bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+			>
+				<div class="absolute top-5 right-5 h-9 w-9 text-sky-100" aria-hidden="true">
+					<svg class="h-full w-full" viewBox="0 0 48 48" focusable="false">
 						<path
 							d="M21 8C10 10 5 17 5 28v12h16V24h-8c.5-5 3.2-8 8-10V8Zm22 0C32 10 27 17 27 28v12h16V24h-8c.5-5 3.2-8 8-10V8Z"
+							fill="currentColor"
 						/>
 					</svg>
 				</div>
-				<div class="testimonial-representative">
+				<div class="mb-5 flex items-center gap-3 pr-10">
 					<div
-						class="testimonial-avatar"
+						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-sky-100 to-blue-200 text-sky-700"
 						role="img"
 						aria-label="Avatar ilustrativo, sin fotografía"
 					>
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<svg class="h-7 w-7" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 							<path
 								d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-7 2-7 4.5V21h14v-2.5c0-2.5-3-4.5-7-4.5Z"
+								fill="currentColor"
 							/>
 						</svg>
 					</div>
-					<div class="representative-info">
-						<strong>Madre de estudiante de primer grado</strong>
-						<span>Texto ilustrativo de ejemplo</span>
+					<div class="grid gap-1">
+						<strong class="text-sm font-bold text-slate-900"
+							>Madre de estudiante de primer grado</strong
+						>
+						<span class="text-xs text-slate-500">Texto ilustrativo de ejemplo</span>
 					</div>
 				</div>
-				<blockquote>
+				<blockquote class="text-base leading-7 text-slate-600">
 					<p>
 						“Encontramos un equipo atento que acompaña a nuestra familia y celebra cada avance de
 						nuestro hijo.”
@@ -141,32 +334,38 @@
 				</blockquote>
 			</figure>
 
-			<figure class="testimonial-card">
-				<div class="quote-mark" aria-hidden="true">
-					<svg viewBox="0 0 48 48" focusable="false">
+			<figure
+				class="relative rounded-2xl border border-white bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+			>
+				<div class="absolute top-5 right-5 h-9 w-9 text-sky-100" aria-hidden="true">
+					<svg class="h-full w-full" viewBox="0 0 48 48" focusable="false">
 						<path
 							d="M21 8C10 10 5 17 5 28v12h16V24h-8c.5-5 3.2-8 8-10V8Zm22 0C32 10 27 17 27 28v12h16V24h-8c.5-5 3.2-8 8-10V8Z"
+							fill="currentColor"
 						/>
 					</svg>
 				</div>
-				<div class="testimonial-representative">
+				<div class="mb-5 flex items-center gap-3 pr-10">
 					<div
-						class="testimonial-avatar"
+						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-sky-100 to-blue-200 text-sky-700"
 						role="img"
 						aria-label="Avatar ilustrativo, sin fotografía"
 					>
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<svg class="h-7 w-7" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 							<path
 								d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-7 2-7 4.5V21h14v-2.5c0-2.5-3-4.5-7-4.5Z"
+								fill="currentColor"
 							/>
 						</svg>
 					</div>
-					<div class="representative-info">
-						<strong>Representante de Educación Inicial</strong>
-						<span>Texto ilustrativo de ejemplo</span>
+					<div class="grid gap-1">
+						<strong class="text-sm font-bold text-slate-900"
+							>Representante de Educación Inicial</strong
+						>
+						<span class="text-xs text-slate-500">Texto ilustrativo de ejemplo</span>
 					</div>
 				</div>
-				<blockquote>
+				<blockquote class="text-base leading-7 text-slate-600">
 					<p>
 						“Nos sentimos escuchados y orientados. La comunicación con el equipo nos da confianza
 						para acompañar su aprendizaje.”
@@ -174,32 +373,38 @@
 				</blockquote>
 			</figure>
 
-			<figure class="testimonial-card">
-				<div class="quote-mark" aria-hidden="true">
-					<svg viewBox="0 0 48 48" focusable="false">
+			<figure
+				class="relative rounded-2xl border border-white bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+			>
+				<div class="absolute top-5 right-5 h-9 w-9 text-sky-100" aria-hidden="true">
+					<svg class="h-full w-full" viewBox="0 0 48 48" focusable="false">
 						<path
 							d="M21 8C10 10 5 17 5 28v12h16V24h-8c.5-5 3.2-8 8-10V8Zm22 0C32 10 27 17 27 28v12h16V24h-8c.5-5 3.2-8 8-10V8Z"
+							fill="currentColor"
 						/>
 					</svg>
 				</div>
-				<div class="testimonial-representative">
+				<div class="mb-5 flex items-center gap-3 pr-10">
 					<div
-						class="testimonial-avatar"
+						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-sky-100 to-blue-200 text-sky-700"
 						role="img"
 						aria-label="Avatar ilustrativo, sin fotografía"
 					>
-						<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<svg class="h-7 w-7" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 							<path
 								d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-7 2-7 4.5V21h14v-2.5c0-2.5-3-4.5-7-4.5Z"
+								fill="currentColor"
 							/>
 						</svg>
 					</div>
-					<div class="representative-info">
-						<strong>Madre de estudiante de bachillerato</strong>
-						<span>Texto ilustrativo de ejemplo</span>
+					<div class="grid gap-1">
+						<strong class="text-sm font-bold text-slate-900"
+							>Madre de estudiante de bachillerato</strong
+						>
+						<span class="text-xs text-slate-500">Texto ilustrativo de ejemplo</span>
 					</div>
 				</div>
-				<blockquote>
+				<blockquote class="text-base leading-7 text-slate-600">
 					<p>
 						“Cada día vemos cuánto disfruta aprender en un espacio donde respetan su ritmo y
 						reconocen sus fortalezas.”
@@ -209,314 +414,3 @@
 		</div>
 	</div>
 </section>
-
-<style>
-	.hero-carousel {
-		position: relative;
-		width: 100%;
-		height: clamp(24rem, 55vw, 42rem);
-		overflow: hidden;
-		background: var(--color-navy);
-	}
-
-	.hero-image {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0;
-		object-fit: fill;
-		object-position: center;
-		transition: opacity 220ms ease;
-		pointer-events: none;
-	}
-
-	.hero-image.active {
-		opacity: 1;
-	}
-
-	.carousel-arrow {
-		position: absolute;
-		top: 50%;
-		display: grid;
-		width: 3rem;
-		height: 3rem;
-		padding: 0.5rem;
-		transform: translateY(-50%);
-		place-items: center;
-		border: 1px solid rgb(255 255 255 / 55%);
-		border-radius: 50%;
-		background: rgb(22 50 79 / 35%);
-		color: #fff;
-		cursor: pointer;
-		transition:
-			background-color 150ms ease,
-			border-color 150ms ease;
-	}
-
-	.carousel-arrow:hover {
-		border-color: #fff;
-		background: rgb(22 50 79 / 75%);
-	}
-
-	.carousel-arrow svg {
-		width: 1.5rem;
-		height: 1.5rem;
-		fill: none;
-		stroke: currentColor;
-		stroke-linecap: round;
-		stroke-linejoin: round;
-		stroke-width: 2;
-	}
-
-	.previous {
-		left: clamp(1rem, 3vw, 2.5rem);
-	}
-
-	.next {
-		right: clamp(1rem, 3vw, 2.5rem);
-	}
-
-	.carousel-indicators {
-		position: absolute;
-		right: 1rem;
-		bottom: 1.25rem;
-		left: 1rem;
-		display: flex;
-		justify-content: center;
-		gap: 0.75rem;
-	}
-
-	.carousel-indicator {
-		width: 0.75rem;
-		height: 0.75rem;
-		padding: 0;
-		border: 1px solid #fff;
-		border-radius: 50%;
-		background: rgb(22 50 79 / 35%);
-		cursor: pointer;
-		transition:
-			background-color 150ms ease,
-			transform 150ms ease;
-	}
-
-	.carousel-indicator:hover {
-		transform: scale(1.15);
-	}
-
-	.carousel-indicator.active {
-		background: #fff;
-	}
-
-	.latest-posts {
-		padding-block: clamp(2.5rem, 6vw, 5rem);
-	}
-
-	.latest-posts-header {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 1rem;
-		margin-bottom: 1.5rem;
-	}
-
-	.latest-posts-header h2 {
-		margin: 0;
-		font-size: clamp(1.6rem, 3vw, 2.25rem);
-	}
-
-	.all-posts-link {
-		flex-shrink: 0;
-		font-weight: 600;
-	}
-
-	.posts-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1.25rem;
-	}
-
-	.post-card {
-		overflow: hidden;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-card);
-		background: var(--color-surface);
-	}
-
-	.post-image {
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		object-fit: cover;
-	}
-
-	.post-content {
-		padding: 1.25rem;
-	}
-
-	.post-meta {
-		margin: 0 0 0.6rem;
-		color: var(--color-muted);
-		font-size: 0.875rem;
-	}
-
-	.post-content h3 {
-		margin: 0;
-		font-size: 1.2rem;
-	}
-
-	.post-content h3 a {
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.post-content h3 a:hover {
-		color: var(--color-primary-hover);
-	}
-
-	.post-description {
-		margin: 0.75rem 0 0;
-	}
-
-	.testimonials {
-		padding-block: clamp(2.5rem, 6vw, 5rem);
-		background: #f5f8fb;
-	}
-
-	.testimonials-header {
-		margin-bottom: 1.5rem;
-		text-align: center;
-	}
-
-	.testimonials-header h2 {
-		margin: 0;
-		font-size: clamp(1.6rem, 3vw, 2.25rem);
-	}
-
-	.testimonials-note {
-		margin: 0.75rem 0 0;
-		color: var(--color-muted);
-		font-size: 0.9rem;
-	}
-
-	.testimonials-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1.25rem;
-	}
-
-	.testimonial-card {
-		position: relative;
-		margin: 0;
-		padding: 1.5rem;
-		border: 1px solid #f3f4f6;
-		border-radius: 12px;
-		background: #fff;
-		box-shadow: 0 10px 24px rgb(15 23 42 / 8%);
-		transition:
-			transform 180ms ease,
-			box-shadow 180ms ease;
-	}
-
-	.testimonial-card:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 18px 36px rgb(15 23 42 / 12%);
-	}
-
-	.quote-mark {
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		width: 2.5rem;
-		height: 2.5rem;
-		color: rgb(8 121 185 / 18%);
-	}
-
-	.quote-mark svg {
-		width: 100%;
-		height: 100%;
-		fill: currentColor;
-	}
-
-	.testimonial-representative {
-		display: flex;
-		align-items: center;
-		gap: 0.9rem;
-		margin-bottom: 1rem;
-		padding-right: 2.5rem;
-	}
-
-	.testimonial-avatar {
-		display: grid;
-		width: 3rem;
-		height: 3rem;
-		flex: 0 0 3rem;
-		place-items: center;
-		overflow: hidden;
-		border-radius: 50%;
-		background: linear-gradient(135deg, #e8f2fc, #cfe3f6);
-		color: #7395b2;
-	}
-
-	.testimonial-avatar svg {
-		width: 1.75rem;
-		height: 1.75rem;
-		fill: currentColor;
-	}
-
-	.representative-info {
-		display: grid;
-		gap: 0.2rem;
-		color: var(--color-heading);
-		font-weight: 600;
-	}
-
-	.representative-info span {
-		color: var(--color-muted);
-		font-size: 0.8rem;
-		font-weight: 400;
-	}
-
-	.testimonial-card blockquote {
-		margin: 0;
-		font-size: 1rem;
-		line-height: 1.7;
-	}
-
-	.testimonial-card blockquote p {
-		margin: 0;
-	}
-
-	@media (max-width: 600px) {
-		.hero-carousel {
-			height: clamp(20rem, 75vh, 32rem);
-		}
-
-		.carousel-arrow {
-			width: 2.75rem;
-			height: 2.75rem;
-		}
-
-		.carousel-indicators {
-			gap: 0.6rem;
-		}
-	}
-
-	@media (max-width: 760px) {
-		.posts-grid,
-		.testimonials-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
-
-	@media (max-width: 520px) {
-		.latest-posts-header {
-			align-items: flex-start;
-			flex-direction: column;
-		}
-
-		.posts-grid,
-		.testimonials-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>
