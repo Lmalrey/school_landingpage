@@ -13,7 +13,7 @@
 
 <section class="relative isolate overflow-hidden bg-slate-950" aria-labelledby="blog-heading">
 	<div
-		class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950"
+		class="absolute inset-0 -z-10 bg-linear-to-br from-slate-950 via-slate-900 to-sky-950"
 		aria-hidden="true"
 	></div>
 	<div
@@ -56,7 +56,7 @@
 						href={resolve('/blog/[slug]', { slug: post.slug })}
 					>
 						{#if post.image}
-							<div class="aspect-[16/10] overflow-hidden bg-slate-100">
+							<div class="aspect-16/10 overflow-hidden bg-slate-100">
 								<img
 									class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
 									src={post.image}

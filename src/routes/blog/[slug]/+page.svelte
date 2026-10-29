@@ -34,7 +34,7 @@
 	</header>
 
 	<div class="content">
-		{@html data.post.content}
+		{data.post.content}
 	</div>
 
 	<a href={resolve('/blog')} class="back-btn">← Volver al Blog</a>

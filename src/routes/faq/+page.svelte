@@ -11,7 +11,7 @@
 
 <section class="relative isolate overflow-hidden bg-slate-950" aria-labelledby="faq-heading">
 	<div
-		class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950"
+		class="absolute inset-0 -z-10 bg-linear-to-br from-slate-950 via-slate-900 to-sky-950"
 		aria-hidden="true"
 	></div>
 	<div
@@ -41,7 +41,7 @@
 </section>
 
 <section
-	class="bg-gradient-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
+	class="bg-linear-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
 	aria-labelledby="faq-list-heading"
 >
 	<div class="mx-auto max-w-4xl px-6 sm:px-10 lg:px-12">
@@ -99,7 +99,7 @@
 						/>
 					</svg>
 				</summary>
-				<div class="mt-4 border-t border-slate-100 pt-4 pl-[3.25rem]">
+				<div class="mt-4 border-t border-slate-100 pt-4 pl-13">
 					<p class="text-sm leading-7 text-slate-600 sm:text-base">
 						Es un centro privado de educación especial ubicado en Maturín, estado Monagas. Su
 						propuesta acompaña el aprendizaje y el desarrollo integral de niños, niñas y jóvenes.
@@ -145,7 +145,7 @@
 						/>
 					</svg>
 				</summary>
-				<div class="mt-4 border-t border-slate-100 pt-4 pl-[3.25rem]">
+				<div class="mt-4 border-t border-slate-100 pt-4 pl-13">
 					<p class="text-sm leading-7 text-slate-600 sm:text-base">
 						La propuesta está dirigida a niños, niñas y jóvenes, con atención especializada en
 						autismo (grados 2 y 3), discapacidad intelectual moderada y síndrome de Down. Para
@@ -192,7 +192,7 @@
 						/>
 					</svg>
 				</summary>
-				<div class="mt-4 border-t border-slate-100 pt-4 pl-[3.25rem]">
+				<div class="mt-4 border-t border-slate-100 pt-4 pl-13">
 					<p class="text-sm leading-7 text-slate-600 sm:text-base">
 						Entre sus servicios principales se encuentran educación física adaptada, terapia
 						ocupacional, fisioterapia y clases de música y arte. También ofrece servicios
@@ -240,7 +240,7 @@
 						/>
 					</svg>
 				</summary>
-				<div class="mt-4 border-t border-slate-100 pt-4 pl-[3.25rem]">
+				<div class="mt-4 border-t border-slate-100 pt-4 pl-13">
 					<p class="text-sm leading-7 text-slate-600 sm:text-base">
 						El horario de atención presencial es de lunes a viernes, de 7:00 am a 11:45 am.
 					</p>
@@ -286,7 +286,7 @@
 						/>
 					</svg>
 				</summary>
-				<div class="mt-4 border-t border-slate-100 pt-4 pl-[3.25rem]">
+				<div class="mt-4 border-t border-slate-100 pt-4 pl-13">
 					<p class="text-sm leading-7 text-slate-600 sm:text-base">
 						Estamos en la Avenida Principal de Fundemos, Local 25, en Maturín, estado Monagas,
 						Venezuela. Puedes consultar el mapa en nuestra
@@ -338,7 +338,7 @@
 						/>
 					</svg>
 				</summary>
-				<div class="mt-4 border-t border-slate-100 pt-4 pl-[3.25rem]">
+				<div class="mt-4 border-t border-slate-100 pt-4 pl-13">
 					<p class="text-sm leading-7 text-slate-600 sm:text-base">
 						Comunícate con el instituto para consultar disponibilidad, requisitos y los pasos a
 						seguir. Puedes escribir a

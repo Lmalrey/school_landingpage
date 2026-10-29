@@ -32,7 +32,7 @@
 />
 
 <section
-	class="relative isolate min-h-[36rem] overflow-hidden bg-slate-950 sm:min-h-[40rem] lg:min-h-[42rem]"
+	class="relative isolate min-h-144 overflow-hidden bg-slate-950 sm:min-h-160 lg:min-h-168"
 	aria-label="Galería del Instituto"
 	aria-roledescription="carrusel"
 >
@@ -46,16 +46,16 @@
 	{/each}
 
 	<div
-		class="absolute inset-0 -z-0 bg-gradient-to-r from-slate-950/90 via-slate-900/65 to-slate-900/10"
+		class="absolute inset-0 z-0 bg-linear-to-r from-slate-950/90 via-slate-900/65 to-slate-900/10"
 		aria-hidden="true"
 	></div>
 	<div
-		class="absolute inset-x-0 bottom-0 -z-0 h-40 bg-gradient-to-t from-slate-950/50 to-transparent"
+		class="absolute inset-x-0 bottom-0 z-0 h-40 bg-linear-to-t from-slate-950/50 to-transparent"
 		aria-hidden="true"
 	></div>
 
 	<div
-		class="relative z-10 mx-auto flex min-h-[36rem] w-full max-w-7xl items-center px-6 py-20 sm:min-h-[40rem] sm:px-10 lg:min-h-[42rem] lg:px-12"
+		class="relative z-10 mx-auto flex min-h-144 w-full max-w-7xl items-center px-6 py-20 sm:min-h-160 sm:px-10 lg:min-h-168 lg:px-12"
 	>
 		<div class="max-w-3xl text-white">
 			<p
@@ -78,7 +78,7 @@
 					class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-950 shadow-lg shadow-amber-950/20 transition duration-200 hover:-translate-y-0.5 hover:bg-amber-300 hover:text-slate-950 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
 					href={resolve('/contacto')}
 				>
-					Conoce nuestra escuela
+					Contáctanos
 					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 						<path
 							d="M5 12h14m-6-6 6 6-6 6"
@@ -152,65 +152,115 @@
 </section>
 
 <section
-	class="relative z-10 mx-auto -mt-1 grid max-w-7xl gap-4 px-6 py-8 sm:grid-cols-3 sm:px-10 lg:-mt-10 lg:px-12"
+	class="bg-linear-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
+	aria-labelledby="values-heading"
 >
-	<article
-		class="rounded-2xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
-	>
-		<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-sky-700">
-			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-				<path
-					d="M12 3 3.5 7.5 12 12l8.5-4.5L12 3Zm-6 7.1V15c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5v-4.9M20.5 8v7"
-					stroke="currentColor"
-					stroke-width="1.7"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/>
-			</svg>
+	<div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
+		<header class="mx-auto mb-10 max-w-2xl text-center">
+			<p class="mb-3 text-sm font-bold tracking-[0.16em] text-sky-700 uppercase">
+				Nuestra forma de acompañar
+			</p>
+			<h2 id="values-heading" class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+				Un entorno para aprender y crecer
+			</h2>
+			<p class="mt-4 leading-7 text-slate-600">
+				Creamos oportunidades para que cada estudiante desarrolle su potencial con respeto y apoyo.
+			</p>
+		</header>
+
+		<div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+			<article
+				class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
+			>
+				<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-sky-700">
+					<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M12 3 3.5 7.5 12 12l8.5-4.5L12 3Zm-6 7.1V15c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5v-4.9M20.5 8v7"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</div>
+				<h2 class="text-lg font-bold text-slate-900">Aprendizaje con propósito</h2>
+				<p class="mt-2 text-sm leading-6 text-slate-600">
+					Un entorno educativo que valora las fortalezas y el potencial de cada estudiante.
+				</p>
+			</article>
+			<article
+				class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
+			>
+				<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-amber-600">
+					<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</div>
+				<h2 class="text-lg font-bold text-slate-900">Acompañamiento cercano</h2>
+				<p class="mt-2 text-sm leading-6 text-slate-600">
+					Construimos junto a las familias una comunidad de apoyo, respeto y confianza.
+				</p>
+			</article>
+			<article
+				class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
+			>
+				<div
+					class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-700"
+				>
+					<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M12 3v18m0-14c-3.5 0-5.5-1.7-5.5-4m5.5 7c3.5 0 5.5-1.7 5.5-4M12 15c-3.5 0-5.5-1.7-5.5-4m5.5 7c3.5 0 5.5-1.7 5.5-4"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</div>
+				<h2 class="text-lg font-bold text-slate-900">Desarrollo a su ritmo</h2>
+				<p class="mt-2 text-sm leading-6 text-slate-600">
+					Celebramos los avances cotidianos y acompañamos cada etapa de crecimiento.
+				</p>
+			</article>
 		</div>
-		<h2 class="text-lg font-bold text-slate-900">Aprendizaje con propósito</h2>
-		<p class="mt-2 text-sm leading-6 text-slate-600">
-			Un entorno educativo que valora las fortalezas y el potencial de cada estudiante.
-		</p>
-	</article>
-	<article
-		class="rounded-2xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
-	>
-		<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-amber-600">
-			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-				<path
-					d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"
-					stroke="currentColor"
-					stroke-width="1.7"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/>
-			</svg>
+
+		<div
+			class="mt-8 flex flex-col gap-5 rounded-3xl bg-slate-950 p-6 text-white shadow-lg shadow-slate-900/10 sm:flex-row sm:items-center sm:justify-between sm:p-8"
+		>
+			<div>
+				<p class="text-sm font-bold tracking-[0.16em] text-amber-300 uppercase">
+					Estamos para orientarte
+				</p>
+				<h2 class="mt-2 text-xl font-bold text-white sm:text-2xl">
+					¿Quieres conocer más sobre el instituto?
+				</h2>
+				<p class="mt-2 max-w-2xl text-sm leading-6 text-slate-300">
+					Escríbenos y conversemos sobre cómo acompañar el aprendizaje de tu hijo o hija.
+				</p>
+			</div>
+			<a
+				class="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-950 transition duration-200 hover:-translate-y-0.5 hover:bg-amber-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
+				href={resolve('/contacto')}
+			>
+				Ir a contacto
+				<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+					<path
+						d="M5 12h14m-6-6 6 6-6 6"
+						stroke="currentColor"
+						stroke-width="1.8"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+				</svg>
+			</a>
 		</div>
-		<h2 class="text-lg font-bold text-slate-900">Acompañamiento cercano</h2>
-		<p class="mt-2 text-sm leading-6 text-slate-600">
-			Construimos junto a las familias una comunidad de apoyo, respeto y confianza.
-		</p>
-	</article>
-	<article
-		class="rounded-2xl border border-slate-100 bg-white p-6 shadow-lg shadow-slate-900/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl"
-	>
-		<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-emerald-50 text-emerald-700">
-			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-				<path
-					d="M12 3v18m0-14c-3.5 0-5.5-1.7-5.5-4m5.5 7c3.5 0 5.5-1.7 5.5-4M12 15c-3.5 0-5.5-1.7-5.5-4m5.5 7c3.5 0 5.5-1.7 5.5-4"
-					stroke="currentColor"
-					stroke-width="1.7"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				/>
-			</svg>
-		</div>
-		<h2 class="text-lg font-bold text-slate-900">Desarrollo a su ritmo</h2>
-		<p class="mt-2 text-sm leading-6 text-slate-600">
-			Celebramos los avances cotidianos y acompañamos cada etapa de crecimiento.
-		</p>
-	</article>
+	</div>
 </section>
 
 <section
@@ -253,7 +303,7 @@
 			>
 				{#if post.image}
 					<img
-						class="aspect-[16/9] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+						class="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.03]"
 						src={post.image}
 						alt={post.title}
 					/>
@@ -275,7 +325,7 @@
 </section>
 
 <section
-	class="bg-gradient-to-br from-sky-50 via-slate-50 to-amber-50/60 py-16 sm:py-20"
+	class="bg-linear-to-br from-sky-50 via-slate-50 to-amber-50/60 py-16 sm:py-20"
 	aria-labelledby="testimonials-heading"
 >
 	<div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
@@ -308,7 +358,7 @@
 				</div>
 				<div class="mb-5 flex items-center gap-3 pr-10">
 					<div
-						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-sky-100 to-blue-200 text-sky-700"
+						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-linear-to-br from-sky-100 to-blue-200 text-sky-700"
 						role="img"
 						aria-label="Avatar ilustrativo, sin fotografía"
 					>
@@ -347,7 +397,7 @@
 				</div>
 				<div class="mb-5 flex items-center gap-3 pr-10">
 					<div
-						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-sky-100 to-blue-200 text-sky-700"
+						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-linear-to-br from-sky-100 to-blue-200 text-sky-700"
 						role="img"
 						aria-label="Avatar ilustrativo, sin fotografía"
 					>
@@ -386,7 +436,7 @@
 				</div>
 				<div class="mb-5 flex items-center gap-3 pr-10">
 					<div
-						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-sky-100 to-blue-200 text-sky-700"
+						class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-linear-to-br from-sky-100 to-blue-200 text-sky-700"
 						role="img"
 						aria-label="Avatar ilustrativo, sin fotografía"
 					>
