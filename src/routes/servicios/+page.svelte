@@ -10,7 +10,7 @@
 
 <section class="relative isolate overflow-hidden bg-slate-950" aria-labelledby="services-heading">
 	<div
-		class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950"
+		class="absolute inset-0 -z-10 bg-linear-to-br from-slate-950 via-slate-900 to-sky-950"
 		aria-hidden="true"
 	></div>
 	<div
@@ -60,7 +60,7 @@
 </section>
 
 <section
-	class="bg-gradient-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
+	class="bg-linear-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
 	aria-labelledby="education-heading"
 >
 	<div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
@@ -191,7 +191,7 @@
 			class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10"
 		>
 			<div
-				class="flex min-h-36 items-center justify-between bg-gradient-to-br from-sky-100 to-sky-50 p-6"
+				class="flex min-h-36 items-center justify-between bg-linear-to-br from-sky-100 to-sky-50 p-6"
 			>
 				<span
 					class="grid h-16 w-16 place-items-center rounded-2xl bg-sky-700 text-white shadow-lg transition-transform group-hover:scale-105"
@@ -228,7 +228,7 @@
 			class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10"
 		>
 			<div
-				class="flex min-h-36 items-center justify-between bg-gradient-to-br from-amber-100 to-amber-50 p-6"
+				class="flex min-h-36 items-center justify-between bg-linear-to-br from-amber-100 to-amber-50 p-6"
 			>
 				<span
 					class="grid h-16 w-16 place-items-center rounded-2xl bg-amber-400 text-slate-950 shadow-lg transition-transform group-hover:scale-105"
@@ -265,7 +265,7 @@
 			class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10"
 		>
 			<div
-				class="flex min-h-36 items-center justify-between bg-gradient-to-br from-sky-100 to-sky-50 p-6"
+				class="flex min-h-36 items-center justify-between bg-linear-to-br from-sky-100 to-sky-50 p-6"
 			>
 				<span
 					class="grid h-16 w-16 place-items-center rounded-2xl bg-sky-700 text-white shadow-lg transition-transform group-hover:scale-105"
@@ -302,7 +302,7 @@
 			class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10"
 		>
 			<div
-				class="flex min-h-36 items-center justify-between bg-gradient-to-br from-amber-100 to-amber-50 p-6"
+				class="flex min-h-36 items-center justify-between bg-linear-to-br from-amber-100 to-amber-50 p-6"
 			>
 				<span
 					class="grid h-16 w-16 place-items-center rounded-2xl bg-amber-400 text-slate-950 shadow-lg transition-transform group-hover:scale-105"
@@ -338,7 +338,7 @@
 </section>
 
 <section
-	class="bg-gradient-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
+	class="bg-linear-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
 	aria-labelledby="additional-services-heading"
 >
 	<div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
