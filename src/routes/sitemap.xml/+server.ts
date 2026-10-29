@@ -4,7 +4,7 @@ import { siteUrlFor } from '../../lib/utils/seo';
 
 export const prerender = true;
 
-const staticPages = ['', 'nosotros/', 'servicios/', 'contacto/', 'blog/'];
+const staticPages = ['', 'nosotros/', 'servicios/', 'contacto/', 'faq/', 'blog/'];
 
 function escapeXml(value: string): string {
 	return value
