@@ -11,17 +11,17 @@
 	/>
 </svelte:head>
 
-<section class="relative isolate overflow-hidden bg-slate-950">
-	<img
-		class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-		src={studentsImage}
-		alt="Estudiantes del Instituto Dr. Carlos Seguías celebrando sus logros"
-	/>
+<section class="relative isolate overflow-hidden bg-slate-950" aria-labelledby="about-heading">
 	<div
-		class="absolute inset-0 -z-10 bg-linear-to-r from-slate-950/90 via-slate-900/75 to-slate-900/35"
+		class="absolute inset-0 -z-10 bg-linear-to-br from-slate-950 via-slate-900 to-sky-950"
+		aria-hidden="true"
 	></div>
 	<div
-		class="mx-auto grid min-h-[25rem] max-w-7xl items-center px-6 py-16 sm:px-10 sm:py-20 lg:min-h-[30rem] lg:px-12"
+		class="absolute -top-32 -right-24 -z-10 h-96 w-96 rounded-full bg-sky-500/15 blur-3xl"
+		aria-hidden="true"
+	></div>
+	<div
+		class="mx-auto grid min-h-100 max-w-7xl items-center px-6 py-16 sm:px-10 sm:py-20 lg:min-h-120 lg:px-12"
 	>
 		<div class="max-w-3xl">
 			<p
@@ -31,6 +31,7 @@
 				Conoce nuestra historia
 			</p>
 			<h1
+				id="about-heading"
 				class="text-4xl leading-tight font-bold tracking-tight text-amber-300 drop-shadow-lg sm:text-5xl lg:text-6xl"
 			>
 				Educación que reconoce todo lo que cada persona puede lograr.
@@ -65,10 +66,10 @@
 
 	<div class="relative mx-auto w-full max-w-lg">
 		<div
-			class="absolute -top-4 -left-4 h-24 w-24 rounded-tl-[2rem] border-t-4 border-l-4 border-amber-400 sm:-top-6 sm:-left-6"
+			class="absolute -top-4 -left-4 h-24 w-24 rounded-tl-4xl border-t-4 border-l-4 border-amber-400 sm:-top-6 sm:-left-6"
 		></div>
 		<img
-			class="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-2xl shadow-slate-900/15"
+			class="relative aspect-4/3 w-full rounded-3xl object-cover shadow-2xl shadow-slate-900/15"
 			src={studentsImage}
 			alt="Estudiantes del instituto reunidos con sus certificados"
 			loading="lazy"
@@ -85,7 +86,7 @@
 </section>
 
 <section
-	class="bg-gradient-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
+	class="bg-linear-to-br from-sky-50 via-white to-amber-50/70 py-16 sm:py-20"
 	aria-labelledby="inspiration-heading"
 >
 	<div
@@ -277,7 +278,7 @@
 	aria-label="Misión y visión"
 >
 	<article
-		class="rounded-2xl border border-sky-100 bg-gradient-to-br from-sky-50 to-white p-8 shadow-lg shadow-sky-900/10 sm:p-10"
+		class="rounded-2xl border border-sky-100 bg-linear-to-br from-sky-50 to-white p-8 shadow-lg shadow-sky-900/10 sm:p-10"
 	>
 		<div
 			class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-sky-700 text-white shadow-lg shadow-sky-900/15"
@@ -304,7 +305,7 @@
 	</article>
 
 	<article
-		class="rounded-2xl border border-amber-100 bg-gradient-to-br from-amber-50 to-white p-8 shadow-lg shadow-amber-900/10 sm:p-10"
+		class="rounded-2xl border border-amber-100 bg-linear-to-br from-amber-50 to-white p-8 shadow-lg shadow-amber-900/10 sm:p-10"
 	>
 		<div
 			class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-amber-400 text-slate-950 shadow-lg shadow-amber-900/10"
@@ -336,7 +337,7 @@
 
 <section class="px-6 pb-16 sm:px-10 sm:pb-20 lg:px-12">
 	<div
-		class="mx-auto flex max-w-7xl flex-col gap-6 rounded-3xl bg-gradient-to-r from-sky-800 to-sky-700 px-7 py-9 text-white shadow-xl shadow-sky-900/15 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-10"
+		class="mx-auto flex max-w-7xl flex-col gap-6 rounded-3xl bg-linear-to-r from-sky-800 to-sky-700 px-7 py-9 text-white shadow-xl shadow-sky-900/15 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-10"
 	>
 		<div class="max-w-2xl">
 			<p class="mb-2 text-sm font-bold tracking-[0.16em] text-amber-300 uppercase">
@@ -361,6 +362,5 @@
 				/>
 			</svg>
 		</a>
-    
 	</div>
 </section>

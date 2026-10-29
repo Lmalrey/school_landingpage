@@ -81,24 +81,47 @@
 
 			<div class="mt-8 grid gap-4 sm:grid-cols-3">
 				<div class="flex items-center gap-4 rounded-2xl border border-sky-100 bg-sky-50/70 p-4">
-					<span
-						class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-700 text-sm font-bold text-white"
-						aria-hidden="true">01</span
-					>
+					<span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-700 text-white">
+						<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<path
+								d="M12 3a4 4 0 0 0-4 4v.2a3.5 3.5 0 0 0-2 6.3A3.5 3.5 0 0 0 9 19h3V3Zm0 0a4 4 0 0 1 4 4v.2a3.5 3.5 0 0 1 2 6.3A3.5 3.5 0 0 1 15 19h-3M8 9h1m6 0h1m-8 5h2m4 0h2"
+								stroke="currentColor"
+								stroke-width="1.7"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</span>
 					<span class="font-semibold text-slate-800">Discapacidad intelectual moderada</span>
 				</div>
 				<div class="flex items-center gap-4 rounded-2xl border border-amber-100 bg-amber-50/70 p-4">
 					<span
-						class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-400 text-sm font-bold text-slate-950"
-						aria-hidden="true">02</span
+						class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-400 text-slate-950"
 					>
+						<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<path
+								d="M9 3H6a3 3 0 0 0-3 3v3h3a2 2 0 1 1 0 4H3v2a3 3 0 0 0 3 3h3v-3a2 2 0 1 1 4 0v3h2a3 3 0 0 0 3-3v-3h-3a2 2 0 1 1 0-4h3V6a3 3 0 0 0-3-3h-3v3a2 2 0 1 1-4 0V3Z"
+								stroke="currentColor"
+								stroke-width="1.7"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</span>
 					<span class="font-semibold text-slate-800">Autismo (Grado 2 y 3)</span>
 				</div>
 				<div class="flex items-center gap-4 rounded-2xl border border-sky-100 bg-sky-50/70 p-4">
-					<span
-						class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-700 text-sm font-bold text-white"
-						aria-hidden="true">03</span
-					>
+					<span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-700 text-white">
+						<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<path
+								d="M20.8 8.8c0 5.2-8.8 11-8.8 11s-8.8-5.8-8.8-11A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"
+								stroke="currentColor"
+								stroke-width="1.8"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</span>
 					<span class="font-semibold text-slate-800">Síndrome de Down</span>
 				</div>
 			</div>
@@ -169,9 +192,18 @@
 				class="flex min-h-36 items-center justify-between bg-gradient-to-br from-sky-100 to-sky-50 p-6"
 			>
 				<span
-					class="grid h-16 w-16 place-items-center rounded-2xl bg-sky-700 text-xl font-bold text-white shadow-lg transition-transform group-hover:scale-105"
-					aria-hidden="true">01</span
+					class="grid h-16 w-16 place-items-center rounded-2xl bg-sky-700 text-white shadow-lg transition-transform group-hover:scale-105"
 				>
+					<svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="m13 5-2 5 4 1-6 8 1-6-3-1 6-7Zm-5.5 0h.01M18 7h.01M19 15h.01M5 15h.01"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</span>
 				<span class="rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold text-slate-700">
 					Profesor especializado
 				</span>
@@ -197,9 +229,18 @@
 				class="flex min-h-36 items-center justify-between bg-gradient-to-br from-amber-100 to-amber-50 p-6"
 			>
 				<span
-					class="grid h-16 w-16 place-items-center rounded-2xl bg-amber-400 text-xl font-bold text-slate-950 shadow-lg transition-transform group-hover:scale-105"
-					aria-hidden="true">02</span
+					class="grid h-16 w-16 place-items-center rounded-2xl bg-amber-400 text-slate-950 shadow-lg transition-transform group-hover:scale-105"
 				>
+					<svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M7 11V5a2 2 0 0 1 4 0v5-2a2 2 0 0 1 4 0v2-1a2 2 0 0 1 4 0v5c0 4-2.5 7-6.5 7H11c-2 0-3.5-1-4.5-2.5L4 14a2 2 0 0 1 3-3l2 2"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</span>
 				<span class="rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold text-slate-700">
 					Evaluación continua
 				</span>
@@ -225,9 +266,18 @@
 				class="flex min-h-36 items-center justify-between bg-gradient-to-br from-sky-100 to-sky-50 p-6"
 			>
 				<span
-					class="grid h-16 w-16 place-items-center rounded-2xl bg-sky-700 text-xl font-bold text-white shadow-lg transition-transform group-hover:scale-105"
-					aria-hidden="true">03</span
+					class="grid h-16 w-16 place-items-center rounded-2xl bg-sky-700 text-white shadow-lg transition-transform group-hover:scale-105"
 				>
+					<svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M12 3v18m-6-3 6 3 6-3M6 6h12M7 6l-4 7h8L7 6Zm10 0-4 7h8l-4-7ZM5 21h14"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</span>
 				<span class="rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold text-slate-700">
 					Atención físico-motora
 				</span>
@@ -241,8 +291,7 @@
 					</p>
 				</div>
 				<p class="border-t border-slate-100 pt-4 text-sm font-medium text-slate-500">
-					<span class="font-semibold text-sky-700">Fisioterapeutas:</span> Mery Rojas y María de los Ángeles
-					R.
+					<span class="font-semibold text-sky-700">Fisioterapeuta:</span> Lcda. María de los Ángeles Rodríguez
 				</p>
 			</div>
 		</article>
@@ -254,23 +303,32 @@
 				class="flex min-h-36 items-center justify-between bg-gradient-to-br from-amber-100 to-amber-50 p-6"
 			>
 				<span
-					class="grid h-16 w-16 place-items-center rounded-2xl bg-amber-400 text-xl font-bold text-slate-950 shadow-lg transition-transform group-hover:scale-105"
-					aria-hidden="true">04</span
+					class="grid h-16 w-16 place-items-center rounded-2xl bg-amber-400 text-slate-950 shadow-lg transition-transform group-hover:scale-105"
 				>
+					<svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M9 18V5l12-2v13M9 18a3 3 0 1 1-3-3c1.7 0 3 1.3 3 3Zm12-2a3 3 0 1 1-3-3c1.7 0 3 1.3 3 3Z"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</span>
 				<span class="rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold text-slate-700">
 					Expresión cultural
 				</span>
 			</div>
 			<div class="flex flex-1 flex-col justify-between gap-5 p-6">
 				<div>
-					<h3 class="text-xl font-bold text-slate-900">Clases de Música y Arte</h3>
+					<h3 class="text-xl font-bold text-slate-900">Clases de Música</h3>
 					<p class="mt-2 text-sm leading-6 text-slate-600">
 						Estimulación auditiva, ritmo y expresión creativa que favorece el canal socio-emocional
 						y fortalece las habilidades del lenguaje no verbal.
 					</p>
 				</div>
 				<p class="border-t border-slate-100 pt-4 text-sm font-medium text-slate-500">
-					<span class="font-semibold text-sky-700">Coordinación cultural:</span> Licdo. Luis Fernández
+					<span class="font-semibold text-sky-700">A cargo de:</span> Instructor Eduardo Cedeño
 				</p>
 			</div>
 		</article>
@@ -301,10 +359,17 @@
 			<article
 				class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
 			>
-				<span
-					class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-sm font-bold text-sky-700"
-					aria-hidden="true">01</span
-				>
+				<span class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-sky-700">
+					<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</span>
 				<h3 class="text-lg font-bold text-slate-900">Terapia Conductual</h3>
 				<p class="mt-2 text-sm leading-6 text-slate-600">
 					Intervención enfocada en desarrollar habilidades de autorregulación y promover conductas
@@ -315,10 +380,17 @@
 			<article
 				class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
 			>
-				<span
-					class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-sm font-bold text-amber-700"
-					aria-hidden="true">02</span
-				>
+				<span class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-amber-700">
+					<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M12 18V5m0 0C9 5 7 3.5 7 2m5 3c3 0 5-1.5 5-3M5 11c0 3.9 3.1 7 7 7s7-3.1 7-7M8 21h8m-4-3v3"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</span>
 				<h3 class="text-lg font-bold text-slate-900">Terapia de Lenguaje</h3>
 				<p class="mt-2 text-sm leading-6 text-slate-600">
 					Desarrollo del área comunicativa, expresión verbal, vocabulario y métodos alternativos de
@@ -329,10 +401,17 @@
 			<article
 				class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
 			>
-				<span
-					class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-sm font-bold text-sky-700"
-					aria-hidden="true">03</span
-				>
+				<span class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-sky-700">
+					<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M12 3c-3.5 4-6 7.3-6 11a6 6 0 0 0 12 0c0-3.7-2.5-7-6-11Zm-2 12a2 2 0 0 0 2 2"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</span>
 				<h3 class="text-lg font-bold text-slate-900">Reflexología</h3>
 				<p class="mt-2 text-sm leading-6 text-slate-600">
 					Técnicas de relajación y estimulación táctil para la reducción del estrés sensorial y la
@@ -343,10 +422,23 @@
 			<article
 				class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
 			>
-				<span
-					class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-sm font-bold text-amber-700"
-					aria-hidden="true">04</span
-				>
+				<span class="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-amber-50 text-amber-700">
+					<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M12 3a9 9 0 1 0 0 18h1.2a2 2 0 0 0 1.5-3.3 1.8 1.8 0 0 1 1.4-3h1.4a3.5 3.5 0 0 0 3.5-3.5A8.2 8.2 0 0 0 12 3Z"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+						<path
+							d="M7.5 10h.01M10 7.5h.01M14 7.5h.01M16.5 10h.01"
+							stroke="currentColor"
+							stroke-width="2.5"
+							stroke-linecap="round"
+						/>
+					</svg>
+				</span>
 				<h3 class="text-lg font-bold text-slate-900">Escuela de Arte</h3>
 				<p class="mt-2 text-sm leading-6 text-slate-600">
 					Espacio creativo para el descubrimiento de habilidades plásticas, dibujo, pintura y
