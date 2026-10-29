@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import logo from '#lib/assets/logo.png';
 
@@ -12,12 +13,17 @@
 		{ label: 'Contacto', href: '/contacto' },
 		{ label: 'FAQ', href: '/faq' },
 		{ label: 'Blog', href: '/blog' }
-	];
+	] as const;
 </script>
 
 <header class="site-header">
 	<nav class="navbar" aria-label="Navegación principal">
-		<a class="brand" href="/" aria-label="Instituto Dr. Carlos Seguías, inicio" onclick={() => (menuOpen = false)}>
+		<a
+			class="brand"
+			href={resolve('/')}
+			aria-label="Instituto Dr. Carlos Seguías, inicio"
+			onclick={() => (menuOpen = false)}
+		>
 			<img src={logo} alt="" class="brand-logo" />
 			<span class="brand-name">Instituto Dr. Carlos Seguías</span>
 		</a>
@@ -38,9 +44,9 @@
 		<div id="primary-navigation" class:open={menuOpen} class="navigation">
 			{#each links as link (link.href)}
 				<a
-					href={link.href}
-					class:active={page.url.pathname === link.href}
-					aria-current={page.url.pathname === link.href ? 'page' : undefined}
+					href={resolve(link.href)}
+					class:active={page.route.id === link.href}
+					aria-current={page.route.id === link.href ? 'page' : undefined}
 					onclick={() => (menuOpen = false)}
 				>
 					{link.label}

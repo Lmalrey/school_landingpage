@@ -1,16 +1,15 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Seo from '#lib/components/Seo.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>Blog | Instituto Dr. Carlos Seguías</title>
-	<meta
-		name="description"
-		content="Noticias, historias y novedades del Instituto Dr. Carlos Seguías."
-	/>
-</svelte:head>
+<Seo
+	title="Blog de educación especial | Instituto Dr. Carlos Seguías"
+	description="Lee noticias, experiencias y consejos sobre educación especial, terapias y desarrollo integral en el blog del Instituto Dr. Carlos Seguías."
+	path="blog/"
+/>
 
 <section class="relative isolate overflow-hidden bg-slate-950" aria-labelledby="blog-heading">
 	<div

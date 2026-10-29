@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import studentsImage from '#lib/assets/hero2.png';
+	import Seo from '#lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>Nosotros | Instituto Dr. Carlos Seguías</title>
-	<meta
-		name="description"
-		content="Conoce la historia, misión, visión y equipo del Instituto Dr. Carlos Seguías en Maturín, Monagas."
-	/>
-</svelte:head>
+<Seo
+	title="Nosotros | Instituto Dr. Carlos Seguías"
+	description="Conoce la historia y el compromiso del Instituto Dr. Carlos Seguías, centro de educación especial para niños, niñas y jóvenes en Maturín, Monagas."
+	path="nosotros/"
+	image={studentsImage}
+/>
 
 <section class="relative isolate overflow-hidden bg-slate-950" aria-labelledby="about-heading">
 	<div

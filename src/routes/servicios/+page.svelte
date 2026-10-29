@@ -1,10 +1,12 @@
-<svelte:head>
-	<title>Servicios | Instituto Dr. Carlos Seguías</title>
-	<meta
-		name="description"
-		content="Conoce la propuesta educativa, terapias y servicios complementarios del Instituto Dr. Carlos Seguías."
-	/>
-</svelte:head>
+<script lang="ts">
+	import Seo from '#lib/components/Seo.svelte';
+</script>
+
+<Seo
+	title="Servicios educativos y terapéuticos | Instituto Dr. Carlos Seguías"
+	description="Conoce la educación especial inclusiva, terapias y servicios complementarios del Instituto Dr. Carlos Seguías en Maturín, Monagas."
+	path="servicios/"
+/>
 
 <section class="relative isolate overflow-hidden bg-slate-950" aria-labelledby="services-heading">
 	<div

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Seo from '#lib/components/Seo.svelte';
+
 	let submitted = $state(false);
 	let feedbackElement = $state<HTMLDivElement | undefined>(undefined);
 
@@ -17,13 +19,11 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Contacto | Instituto Dr. Carlos Seguías</title>
-	<meta
-		name="description"
-		content="Comunícate con el Instituto Dr. Carlos Seguías para consultar sobre inscripciones y atención pedagógica."
-	/>
-</svelte:head>
+<Seo
+	title="Contacto | Instituto Dr. Carlos Seguías"
+	description="Comunícate con el Instituto Dr. Carlos Seguías en Maturín, Monagas. Consulta sobre inscripciones, educación especial y atención pedagógica."
+	path="contacto/"
+/>
 
 <section class="relative isolate overflow-hidden bg-slate-950" aria-labelledby="contact-heading">
 	<div

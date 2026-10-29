@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import heroImage from '#lib/assets/hero1.png';
 	import heroImage2 from '#lib/assets/hero2.png';
+	import Seo from '#lib/components/Seo.svelte';
 
 	let { data } = $props();
 
@@ -23,13 +24,12 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Inicio | Instituto Dr. Carlos Seguías</title>
-	<meta
-		name="description"
-		content="Conoce el Instituto Dr. Carlos Seguías, un centro de educación especial en Maturín y Monagas."
-	/>
-</svelte:head>
+<Seo
+	title="Educación especial en Maturín | Instituto Dr. Carlos Seguías"
+	description="Conoce el Instituto Dr. Carlos Seguías en Maturín, Monagas. Educación especial adaptada, atención cercana y acompañamiento para cada estudiante."
+	path=""
+	image={heroImage}
+/>
 
 <section
 	class="relative isolate min-h-[36rem] overflow-hidden bg-slate-950 sm:min-h-[40rem] lg:min-h-[42rem]"

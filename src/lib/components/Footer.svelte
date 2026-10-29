@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import logo from '#lib/assets/logo.png';
 </script>
 
 <footer class="site-footer">
 	<div class="footer-content">
-		<a class="footer-brand" href="/" aria-label="Instituto Dr. Carlos Seguías, inicio">
+		<a class="footer-brand" href={resolve('/')} aria-label="Instituto Dr. Carlos Seguías, inicio">
 			<img src={logo} alt="Logo del Centro de Educación Especial Dr. Carlos Seguías" />
 		</a>
 
@@ -129,7 +130,7 @@
 			height: 68px;
 		}
 	}
-  @media (min-width: 1231px) {
+	@media (min-width: 1231px) {
 		.footer-content {
 			width: min(100% - 2rem, 1600px);
 		}
