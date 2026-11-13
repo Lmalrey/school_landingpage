@@ -154,7 +154,7 @@
 				</svg>
 			</div>
 			<p class="text-sm font-semibold text-slate-500">Inauguración</p>
-			<p class="mt-1 text-lg font-bold text-slate-900">8 de noviembre de 2025</p>
+			<p class="mt-1 text-lg font-bold text-slate-900">8 de septiembre de 2025</p>
 			<p class="mt-2 text-sm leading-6 text-slate-600">
 				Actividades iniciadas el 15 de septiembre de 2025.
 			</p>
@@ -162,7 +162,7 @@
 
 		<article
 			class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg"
-		>
+		> 
 			<div class="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-sky-50 text-sky-700">
 				<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 					<path
