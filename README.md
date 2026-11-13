@@ -53,12 +53,12 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-## SEO and GitHub Pages
+## SEO and deployment
 
 Page titles, descriptions, canonical URLs, and social-sharing metadata are managed by
 `src/lib/components/Seo.svelte`. Update `SITE_URL` in `src/lib/utils/seo.ts` and the sitemap URL in
-`static/robots.txt` if the site moves to a custom domain. The GitHub Pages workflow sets
-`GITHUB_PAGES=true` to build the app under the repository's `/school_landingpage` path.
+`static/robots.txt` if the site moves to a custom domain. The app uses the Node adapter and is
+deployed to Render.
 
 The sitemap at `/sitemap.xml` is generated from the published routes and blog posts. The FAQ and
 installations routes are excluded from indexing until they have full content.

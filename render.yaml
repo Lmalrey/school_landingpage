@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: school-landingpage
+    runtime: node
+    buildCommand: pnpm install --frozen-lockfile && pnpm build
+    startCommand: node build
+    envVars:
+      - key: NODE_VERSION
+        value: 22.15.0
+      - key: NOTION_API_KEY
+        sync: false
+      - key: NOTION_DATABASE_ID
+        value: 41324a48-80f2-8061-bb12-000b2566c58a

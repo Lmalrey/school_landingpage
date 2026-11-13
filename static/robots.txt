@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lmalrey.github.io/school_landingpage/sitemap.xml
+Sitemap: https://school-landingpage.onrender.com/sitemap.xml
