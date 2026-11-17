@@ -3,6 +3,14 @@
 	import Seo from '#lib/components/Seo.svelte';
 
 	let { data } = $props();
+
+	const categories = ['Todos', 'Eventos', 'Guía para padres'];
+	let selectedCategory = $state('Todos');
+	let filteredPosts = $derived(
+		selectedCategory === 'Todos'
+			? data.posts
+			: data.posts.filter((post) => post.categoria === selectedCategory)
+	);
 </script>
 
 <Seo
@@ -45,9 +53,31 @@
 	class="mx-auto max-w-7xl px-6 py-12 sm:px-10 sm:py-16 lg:px-12 lg:py-20"
 	aria-label="Artículos del blog"
 >
-	{#if data.posts.length > 0}
+	<div class="mb-9 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+		<div>
+			<p class="text-sm font-bold tracking-[0.16em] text-sky-700 uppercase">Explora el blog</p>
+			<p class="mt-1 text-slate-600">Filtra los artículos por categoría.</p>
+		</div>
+		<div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoría">
+			{#each categories as category (category)}
+				<button
+					type="button"
+					aria-pressed={selectedCategory === category}
+					onclick={() => (selectedCategory = category)}
+					class="cursor-pointer rounded-full border px-4 py-2 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700 {selectedCategory ===
+					category
+						? 'border-sky-700 bg-sky-700 text-white'
+						: 'border-slate-300 bg-white text-slate-700 hover:border-sky-700 hover:text-sky-700'}"
+				>
+					{category}
+				</button>
+			{/each}
+		</div>
+	</div>
+
+	{#if filteredPosts.length > 0}
 		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{#each data.posts as post (post.id)}
+			{#each filteredPosts as post (post.id)}
 				<article
 					class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10"
 				>
@@ -105,6 +135,12 @@
 				</article>
 			{/each}
 		</div>
+	{:else if data.posts.length > 0}
+		<p
+			class="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-10 text-center text-slate-600"
+		>
+			No hay artículos publicados en esta categoría todavía.
+		</p>
 	{:else}
 		<p
 			class="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-10 text-center text-slate-600"
