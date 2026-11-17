@@ -296,32 +296,52 @@
 		</a>
 	</header>
 
-	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-		{#each data.posts as post (post.slug)}
-			<article
-				class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
-			>
-				{#if post.image}
-					<img
-						class="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-						src={post.image}
-						alt={post.title}
-					/>
-				{/if}
-				<div class="p-6">
-					<p class="mb-3 text-sm text-slate-500">{post.date} · {post.author}</p>
-					<h3
-						class="text-xl leading-snug font-bold text-slate-900 transition group-hover:text-sky-700"
+	{#if data.posts.length > 0}
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{#each data.posts as post (post.id)}
+				<article
+					class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+				>
+					<a
+						class="block h-full rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700"
+						href={resolve('/blog/[slug]', { slug: post.slug })}
 					>
-						<a href={resolve('/blog/[slug]', { slug: post.slug })}>{post.title}</a>
-					</h3>
-					{#if post.description}
-						<p class="mt-3 leading-7 text-slate-600">{post.description}</p>
-					{/if}
-				</div>
-			</article>
-		{/each}
-	</div>
+						{#if post.portada}
+							<img
+								class="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+								src={post.portada}
+								alt={post.titulo}
+								loading="lazy"
+							/>
+						{/if}
+						<div class="p-6">
+							<p class="mb-3 text-sm text-slate-500">
+								{#if post.fecha}
+									<time datetime={post.fecha}>{post.fecha}</time>
+									<span class="px-1 text-slate-400" aria-hidden="true">·</span>
+								{/if}
+								{post.autor}
+							</p>
+							<h3
+								class="text-xl leading-snug font-bold text-slate-900 transition group-hover:text-sky-700"
+							>
+								{post.titulo}
+							</h3>
+							{#if post.extracto}
+								<p class="mt-3 leading-7 text-slate-600">{post.extracto}</p>
+							{/if}
+						</div>
+					</a>
+				</article>
+			{/each}
+		</div>
+	{:else}
+		<p
+			class="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-10 text-center text-slate-600"
+		>
+			Próximamente compartiremos nuevos artículos.
+		</p>
+	{/if}
 </section>
 
 <section

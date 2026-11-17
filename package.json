@@ -43,7 +43,6 @@
 	},
 	"dependencies": {
 		"@notionhq/client": "^5.31.1",
-		"marked": "^18.1.1",
 		"notion-to-md": "^3.1.9",
 		"sanitize-html": "^2.18.2"
 	},

@@ -1,7 +1,6 @@
+import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { getPublishedPosts } from '#lib/server/notion.ts';
 
-export const load: PageServerLoad = async () => {
-	const posts = await getPublishedPosts();
-	return { posts };
-};
+export const prerender = false;
+
+export const load: PageServerLoad = () => redirect(301, '/blog/');

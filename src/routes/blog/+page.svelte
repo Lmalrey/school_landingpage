@@ -6,8 +6,8 @@
 </script>
 
 <Seo
-	title="Blog de educación especial | Instituto Dr. Carlos Seguías"
-	description="Lee noticias, experiencias y consejos sobre educación especial, terapias y desarrollo integral en el blog del Instituto Dr. Carlos Seguías."
+	title="Blog escolar | Instituto Dr. Carlos Seguías"
+	description="Noticias, actividades, eventos y guías para las familias y estudiantes del Instituto Dr. Carlos Seguías."
 	path="blog/"
 />
 
@@ -47,7 +47,7 @@
 >
 	{#if data.posts.length > 0}
 		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{#each data.posts as post (post.slug)}
+			{#each data.posts as post (post.id)}
 				<article
 					class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10"
 				>
@@ -55,26 +55,32 @@
 						class="block h-full rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700"
 						href={resolve('/blog/[slug]', { slug: post.slug })}
 					>
-						{#if post.image}
+						{#if post.portada}
 							<div class="aspect-16/10 overflow-hidden bg-slate-100">
 								<img
 									class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-									src={post.image}
-									alt={post.title}
+									src={post.portada}
+									alt={post.titulo}
 									loading="lazy"
 								/>
 							</div>
 						{/if}
 						<div class="p-6 sm:p-7">
 							<p class="text-sm font-semibold text-sky-700">
-								{post.date} <span class="px-1 text-slate-400" aria-hidden="true">·</span>
-								{post.author}
+								{#if post.fecha}
+									<time datetime={post.fecha}>{post.fecha}</time>
+									<span class="px-1 text-slate-400" aria-hidden="true">·</span>
+								{/if}
+								{post.autor}
 							</p>
 							<h2
 								class="mt-3 text-xl leading-snug font-bold text-slate-900 transition-colors group-hover:text-sky-700 sm:text-2xl"
 							>
-								{post.title}
+								{post.titulo}
 							</h2>
+							{#if post.extracto}
+								<p class="mt-3 line-clamp-3 leading-7 text-slate-600">{post.extracto}</p>
+							{/if}
 							<span
 								class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-slate-700 transition-colors group-hover:text-sky-700"
 							>

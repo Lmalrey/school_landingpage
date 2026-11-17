@@ -1,13 +1,7 @@
-import { error } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { getPostBySlug } from '#lib/server/notion.ts';
 
-export const load: PageServerLoad = async ({ params }) => {
-	const result = await getPostBySlug(params.slug);
+export const prerender = false;
 
-	if (!result) {
-		error(404, 'Artículo no encontrado');
-	}
-
-	return result;
-};
+export const load: PageServerLoad = ({ params }) =>
+	redirect(301, `/blog/${encodeURIComponent(params.slug)}/`);

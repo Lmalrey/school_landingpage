@@ -1,8 +1,8 @@
 import type { RequestHandler } from './$types';
-import { getPosts } from '../../lib/utils/posts';
+import { getPublishedPosts } from '#lib/server/notion.ts';
 import { siteUrlFor } from '../../lib/utils/seo';
 
-export const prerender = true;
+export const prerender = false;
 
 const staticPages = ['', 'nosotros/', 'servicios/', 'contacto/', 'faq/', 'blog/'];
 
@@ -16,12 +16,12 @@ function escapeXml(value: string): string {
 }
 
 export const GET: RequestHandler = async () => {
-	const posts = await getPosts();
+	const posts = await getPublishedPosts();
 	const urls: { loc: string; lastmod?: string }[] = [
 		...staticPages.map((path) => ({ loc: siteUrlFor(path) })),
 		...posts.map((post) => ({
 			loc: siteUrlFor(`blog/${post.slug}/`),
-			lastmod: post.date
+			lastmod: post.fecha ?? undefined
 		}))
 	];
 	const entries = urls

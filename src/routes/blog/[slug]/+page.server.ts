@@ -1,10 +1,12 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { getPost } from '../../../lib/utils/posts';
+import { getPostBySlug } from '#lib/server/notion.ts';
+
+export const prerender = false;
 
 export const load: PageServerLoad = async ({ params }) => {
-	const post = await getPost(params.slug);
-	if (!post) error(404, 'Artículo no encontrado');
+	const result = await getPostBySlug(params.slug);
+	if (!result) error(404, 'Artículo no encontrado');
 
-	return { post };
+	return result;
 };
