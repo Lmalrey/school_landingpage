@@ -286,6 +286,10 @@
 
 		<form class="space-y-6" method="POST" use:enhance={handleEnhance}>
 			<div class="grid gap-5 sm:grid-cols-2 sm:gap-6">
+				<div class="hidden" aria-hidden="true">
+					<label for="empresa">Empresa</label>
+					<input id="empresa" name="empresa" type="text" tabindex="-1" autocomplete="off" />
+				</div>
 				<div>
 					<label class="mb-2 block text-sm font-semibold text-slate-700" for="nombre">
 						Nombre <span class="text-sky-700" aria-hidden="true">*</span>
