@@ -6,7 +6,7 @@ import {
 	type PageObjectResponse,
 	type RichTextItemResponse
 } from '@notionhq/client';
-import { NOTION_API_KEY, NOTION_DATABASE_ID } from '$app/env/private';
+import { NOTION_API_KEY, NOTION_DATABASE_ID, NOTION_CONTACT_DATABASE_ID } from '$app/env/private';
 
 const notion = new Client({ auth: NOTION_API_KEY });
 
@@ -30,21 +30,23 @@ export type NotionBlock =
 			items: (BlockObjectResponse & { children?: NotionBlock[] })[];
 	  };
 
-let cachedDataSourceId: string | null = null;
+const dataSourceCache = new Map<string, string>();
 
-async function getDataSourceId(): Promise<string> {
-	if (cachedDataSourceId) return cachedDataSourceId;
+async function getDataSourceId(databaseId: string): Promise<string> {
+	const cached = dataSourceCache.get(databaseId);
+	if (cached) return cached;
 
 	const db = await notion.databases.retrieve({
-		database_id: NOTION_DATABASE_ID
+		database_id: databaseId
 	});
 
 	if (!('data_sources' in db) || db.data_sources.length === 0) {
-		throw new Error('No se encontró ningún data_source en la base de datos Blog.');
+		throw new Error(`No se encontró ningún data_source en la base de datos ${databaseId}.`);
 	}
 
-	cachedDataSourceId = db.data_sources[0].id;
-	return cachedDataSourceId;
+	const id = db.data_sources[0].id;
+	dataSourceCache.set(databaseId, id);
+	return id;
 }
 
 function getRichText(richText: RichTextItemResponse[]): string {
@@ -97,7 +99,7 @@ function mapPageToPost(page: PageObjectResponse): BlogPost {
 }
 
 export async function getPublishedPosts(): Promise<BlogPost[]> {
-	const dataSourceId = await getDataSourceId();
+	const dataSourceId = await getDataSourceId(NOTION_DATABASE_ID);
 
 	const response = await notion.dataSources.query({
 		data_source_id: dataSourceId,
@@ -173,7 +175,7 @@ function groupListBlocks(
 export async function getPostBySlug(
 	slug: string
 ): Promise<{ post: BlogPost; blocks: NotionBlock[] } | null> {
-	const dataSourceId = await getDataSourceId();
+	const dataSourceId = await getDataSourceId(NOTION_DATABASE_ID);
 
 	const response = await notion.dataSources.query({
 		data_source_id: dataSourceId,
@@ -193,4 +195,72 @@ export async function getPostBySlug(
 	const blocks = await fetchBlockChildren(page.id);
 
 	return { post, blocks };
+
+}
+
+export interface ContactInput {
+	nombre: string;
+	correo: string;
+	asunto: string;
+	telefono: string;
+	mensaje: string;
+}
+
+// Notion limita cada bloque de rich_text a 2000 caracteres
+function toRichTextChunks(text: string, maxLength = 2000) {
+	const chunks: { type: 'text'; text: { content: string } }[] = [];
+	for (let i = 0; i < text.length; i += maxLength) {
+		chunks.push({ type: 'text', text: { content: text.slice(i, i + maxLength) } });
+	}
+	return chunks.length > 0 ? chunks : [{ type: 'text' as const, text: { content: '' } }];
+}
+
+export async function createContactMessage(input: ContactInput): Promise<void> {
+	const dataSourceId = await getDataSourceId(NOTION_CONTACT_DATABASE_ID);
+
+	await notion.pages.create({
+		parent: {
+			type: 'data_source_id',
+			data_source_id: dataSourceId
+		},
+		properties: {
+			Nombre: {
+				title: toRichTextChunks(input.nombre)
+			},
+			Correo: {
+				email: input.correo
+			},
+			Asunto: {
+				rich_text: toRichTextChunks(input.asunto)
+			},
+			Teléfono: {
+				phone_number: input.telefono
+			},
+			Mensaje: {
+				rich_text: toRichTextChunks(input.mensaje)
+			},
+			Estado: {
+				select: { name: 'Nuevo' }
+			},
+			Fecha: {
+				date: { start: new Date().toISOString() }
+			}
+		},
+		children: [
+			{
+				object: 'block',
+				type: 'heading_3',
+				heading_3: {
+					rich_text: [{ type: 'text', text: { content: 'Mensaje recibido desde el sitio web' } }]
+				}
+			},
+			{
+				object: 'block',
+				type: 'paragraph',
+				paragraph: {
+					rich_text: toRichTextChunks(input.mensaje)
+				}
+			}
+		]
+	});
 }

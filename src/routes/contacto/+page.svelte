@@ -1,22 +1,27 @@
 <script lang="ts">
+	import { enhance, type SubmitFunction } from '$app/forms';
+	import type { PageProps } from './$types';
 	import Seo from '#lib/components/Seo.svelte';
 
-	let submitted = $state(false);
+	let { form }: PageProps = $props();
+
+	let submitting = $state(false);
 	let feedbackElement = $state<HTMLDivElement | undefined>(undefined);
 
-	function handleSubmit(event: SubmitEvent) {
-		event.preventDefault();
+	const handleEnhance: SubmitFunction = () => {
+		submitting = true;
 
-		const form = event.currentTarget;
-		if (form instanceof HTMLFormElement) {
-			form.reset();
-		}
+		return async ({ result, update }) => {
+			submitting = false;
+			await update();
 
-		submitted = true;
-		requestAnimationFrame(() =>
-			feedbackElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-		);
-	}
+			if (result.type === 'success' || result.type === 'failure') {
+				requestAnimationFrame(() =>
+					feedbackElement?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+				);
+			}
+		};
+	};
 </script>
 
 <Seo
@@ -231,7 +236,7 @@
 			<div class="mt-4 h-1.5 w-16 rounded-full bg-amber-400"></div>
 		</header>
 
-		{#if submitted}
+		{#if form?.success}
 			<div
 				bind:this={feedbackElement}
 				class="mb-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 font-medium text-emerald-800"
@@ -255,9 +260,31 @@
 				</svg>
 				<p>¡Gracias por escribirnos! Hemos recibido tu mensaje y responderemos a la brevedad.</p>
 			</div>
+		{:else if form?.error}
+			<div
+				bind:this={feedbackElement}
+				class="mb-6 flex items-start gap-3 rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm leading-6 font-medium text-rose-800"
+				role="alert"
+			>
+				<svg
+					class="mt-0.5 h-5 w-5 shrink-0 text-rose-600"
+					viewBox="0 0 24 24"
+					fill="none"
+					aria-hidden="true"
+				>
+					<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+					<path
+						d="M12 8v5m0 3h.01"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+					/>
+				</svg>
+				<p>{form.error}</p>
+			</div>
 		{/if}
 
-		<form class="space-y-6" onsubmit={handleSubmit}>
+		<form class="space-y-6" method="POST" use:enhance={handleEnhance}>
 			<div class="grid gap-5 sm:grid-cols-2 sm:gap-6">
 				<div>
 					<label class="mb-2 block text-sm font-semibold text-slate-700" for="nombre">
@@ -270,6 +297,7 @@
 						type="text"
 						autocomplete="name"
 						placeholder="Ingresa tu nombre"
+						value={form?.values?.nombre ?? ''}
 						required
 					/>
 				</div>
@@ -285,6 +313,7 @@
 						type="email"
 						autocomplete="email"
 						placeholder="ejemplo@correo.com"
+						value={form?.values?.correo ?? ''}
 						required
 					/>
 				</div>
@@ -299,6 +328,7 @@
 						name="asunto"
 						type="text"
 						placeholder="Motivo de consulta"
+						value={form?.values?.asunto ?? ''}
 						required
 					/>
 				</div>
@@ -314,6 +344,7 @@
 						type="tel"
 						autocomplete="tel"
 						placeholder="0412-0000000"
+						value={form?.values?.telefono ?? ''}
 						required
 					/>
 				</div>
@@ -329,7 +360,9 @@
 					name="mensaje"
 					rows="5"
 					placeholder="Escribe tu mensaje o consulta detallada aquí..."
-					required></textarea>
+					value={form?.values?.mensaje ?? ''}
+					required
+				></textarea>
 			</div>
 
 			<p class="text-xs text-slate-500">
@@ -337,19 +370,24 @@
 			</p>
 
 			<button
-				class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-700 px-7 py-3 font-bold text-white shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-sky-800 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700"
+				class="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-xl bg-sky-700 px-7 py-3 font-bold text-white shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-sky-800 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
 				type="submit"
+				disabled={submitting}
 			>
-				Enviar mensaje
-				<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-					<path
-						d="M5 12h14m-6-6 6 6-6 6"
-						stroke="currentColor"
-						stroke-width="1.8"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					/>
-				</svg>
+				{#if submitting}
+					Enviando mensaje...
+				{:else}
+					Enviar mensaje
+					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+						<path
+							d="M5 12h14m-6-6 6 6-6 6"
+							stroke="currentColor"
+							stroke-width="1.8"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				{/if}
 			</button>
 		</form>
 	</div>
