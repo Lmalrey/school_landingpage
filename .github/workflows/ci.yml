@@ -30,4 +30,8 @@ jobs:
         run: pnpm check
 
       - name: Build Node server
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          NOTION_CONTACT_DATABASE_ID: ${{ secrets.NOTION_CONTACT_DATABASE_ID }}
         run: pnpm build
