@@ -2,6 +2,8 @@ import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { createContactMessage } from '#lib/server/notion.ts';
 
+export const prerender = false;
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const actions = {
